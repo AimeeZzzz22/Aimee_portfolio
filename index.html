@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aimee Zhang — Product &amp; UX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111114;
+    --paper:#FFFFFF;
+    --soft:#F6F6F7;
+    --line:#E7E7E9;
+    --muted:#7A7A82;
+    --accent:#3BAA6E; /* availability dot */
+    --pill:#111114;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter', sans-serif; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
+
+  /* NAV */
+  nav{position:sticky; top:0; z-index:20; background:rgba(255,255,255,0.85); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:18px 24px;}
+  .brand{font-weight:700; font-size:0.98rem;}
+  .navlinks{display:flex; align-items:center; gap:28px; font-size:0.9rem; font-weight:500; color:var(--muted);}
+  .navlinks a:hover{color:var(--ink);}
+  .btn-pill{
+    background:var(--pill); color:#fff; padding:10px 20px; border-radius:100px;
+    font-size:0.88rem; font-weight:600; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn-pill:hover{transform:translateY(-1px); opacity:.9;}
+  .btn-ghost{
+    border:1px solid var(--line); padding:10px 20px; border-radius:100px;
+    font-size:0.88rem; font-weight:600; color:var(--ink);
+    transition:border-color .15s;
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* HERO */
+  .hero{padding:88px 0 64px; text-align:center;}
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line); border-radius:100px; padding:7px 16px;
+    font-size:0.82rem; font-weight:600; color:var(--muted); margin-bottom:28px;
+  }
+  .badge .dot{width:8px; height:8px; border-radius:50%; background:var(--accent);}
+  .kicker{font-size:1.05rem; color:var(--muted); font-weight:500; margin-bottom:10px;}
+  h1{
+    font-weight:800; letter-spacing:-0.03em;
+    font-size:clamp(2.6rem, 7vw, 4.2rem); line-height:1.02;
+  }
+  .hero p.sub{
+    max-width:46ch; margin:22px auto 0; color:var(--muted); font-size:1.08rem;
+  }
+  .hero-actions{margin-top:34px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  /* METRICS ROW */
+  .metrics{
+    margin-top:70px; display:grid; grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .metric{padding:26px 10px; text-align:center; border-right:1px solid var(--line);}
+  .metric:last-child{border-right:none;}
+  .metric .num{font-weight:800; font-size:1.5rem;}
+  .metric .lbl{font-size:0.78rem; color:var(--muted); margin-top:4px;}
+
+  /* SECTIONS */
+  .section{padding:76px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:36px;}
+  .eyebrow{font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted);}
+  .section h2{font-size:1.9rem; font-weight:800; letter-spacing:-0.02em; margin-top:6px;}
+  .view-all{font-size:0.88rem; font-weight:600; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .view-all:hover{color:var(--ink); border-color:var(--ink);}
+
+  /* PROJECT CARDS */
+  .project{
+    display:grid; grid-template-columns:1fr 1.4fr; gap:28px;
+    padding:30px 0; border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .project:last-child{border-bottom:1px solid var(--line);}
+  .project-head{}
+  .project-title{font-weight:700; font-size:1.2rem;}
+  .project-meta{font-size:0.85rem; color:var(--muted); margin-top:6px;}
+  .tags{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;}
+  .tag{font-size:0.76rem; font-weight:600; background:var(--soft); border-radius:100px; padding:5px 12px; color:var(--muted);}
+  .project-body p{font-size:0.95rem; color:#3A3A40; margin-bottom:10px;}
+  .project-body p:last-child{margin-bottom:0;}
+  .project-body b{color:var(--ink);}
+  .outcome-line{
+    margin-top:14px; font-size:0.9rem; font-weight:600;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .outcome-line .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+
+  /* SKILLS */
+  .skills-wrap{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  .skill-col h4{font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:14px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{font-size:0.85rem; font-weight:500; border:1px solid var(--line); border-radius:100px; padding:7px 14px;}
+
+  /* FOOTER / CONTACT */
+  footer{padding:90px 0; text-align:center; background:var(--ink); color:#fff; border-radius:24px; margin:0 24px 24px; }
+  footer .wrap{max-width:700px;}
+  footer h2{font-size:2.3rem; font-weight:800; letter-spacing:-0.02em;}
+  footer p{color:#B7B7BC; margin-top:14px; font-size:1rem;}
+  footer .hero-actions{margin-top:32px;}
+  footer .btn-pill{background:#fff; color:var(--ink);}
+  footer .btn-ghost{border-color:#3A3A40; color:#fff;}
+  .follow{margin-top:64px; padding-top:34px; border-top:1px solid #2A2A2F;}
+  .follow h4{font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#8A8A90; margin-bottom:16px;}
+  .follow-links{display:flex; gap:22px; justify-content:center; flex-wrap:wrap; font-size:0.9rem; font-weight:500; color:#D6D6DA;}
+  .follow-links a:hover{color:#fff;}
+  .copyright{margin-top:24px; padding:0 24px 30px; text-align:center; font-size:0.78rem; color:var(--muted);}
+
+  @media (max-width:680px){
+    .navlinks{display:none;}
+    .metrics{grid-template-columns:repeat(2,1fr);}
+    .metric:nth-child(2){border-right:none;}
+    .metric:nth-child(3){border-top:1px solid var(--line);}
+    .metric:nth-child(4){border-top:1px solid var(--line);}
+    .project{grid-template-columns:1fr;}
+    .skills-wrap{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Aimee Zhang</div>
+    <div class="navlinks">
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+    </div>
+    <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span> AVAILABLE FOR WORK</span>
+    <div class="kicker">Product &amp; UX</div>
+    <h1>I'm Aimee Zhang.</h1>
+    <p class="sub">CS &amp; Economics graduate from UIUC. I turn user research into product decisions — currently looking for my first full-time role.</p>
+    <div class="hero-actions">
+      <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+      <a class="btn-ghost" href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn-ghost" href="https://github.com/AimeeZzzz22" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="num">100+</div><div class="lbl">user interviews</div></div>
+      <div class="metric"><div class="num">$500</div><div class="lbl">Cozad prize won</div></div>
+      <div class="metric"><div class="num">1,200+</div><div class="lbl">students supported</div></div>
+      <div class="metric"><div class="num">3.95</div><div class="lbl">GPA</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Selected Work</span>
+        <h2>Projects</h2>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Crackdown</div>
+        <div class="project-meta">Prototype Designer &amp; Marketing Manager · Cozad · 2022–2025</div>
+        <div class="tags"><span class="tag">Product strategy</span><span class="tag">User research</span><span class="tag">Figma</span></div>
+      </div>
+      <div class="project-body">
+        <p>An anti-procrastination habit app. I led go-to-market strategy, running <b>100+ user interviews</b> and competitive analysis to define target segments and positioning.</p>
+        <p>The research surfaced a clear signup-to-first-use drop-off point. I redesigned that flow across <b>5+ Figma prototype</b> iterations, balancing simplicity with the behavioral mechanics that keep habit-building motivating rather than punishing.</p>
+        <div class="outcome-line"><span class="dot"></span> Won $500 at the Cozad New Venture Challenge</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Adaptive Lighting App</div>
+        <div class="project-meta">Prototype Designer · FigBuild Hackathon · March 2026</div>
+        <div class="tags"><span class="tag">UX design</span><span class="tag">AI trust</span><span class="tag">Figma</span></div>
+      </div>
+      <div class="project-body">
+        <p>A biometric wellness app that adjusts lighting based on your body's signals. In <b>7 days</b>, I designed and prototyped a full 4-screen app, from concept to a working clickable prototype.</p>
+        <p>The centerpiece was a "Why this color?" explainability feature — a way for the app to show its reasoning the moment a user might doubt an AI-driven suggestion, addressing trust head-on instead of asking for blind faith in a black box.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Social Media Literacy App</div>
+        <div class="project-meta">Data Analyzer &amp; Visual Designer · 54 Startup Weekend · Sept 2022</div>
+        <div class="tags"><span class="tag">Market research</span><span class="tag">Prototyping</span></div>
+      </div>
+      <div class="project-body">
+        <p>A 54-hour build teaching media literacy through interaction instead of lecture. I researched the competitive landscape to ground our direction, then designed the visual identity and prototypes for the product's core teaching moments — an explainer video concept and an interactive quiz format.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Toolkit</span>
+        <h2>Skills</h2>
+      </div>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-col">
+        <h4>Technical</h4>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C++</span>
+          <span class="chip">R</span><span class="chip">SQL</span><span class="chip">Unity</span><span class="chip">Unreal Engine</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <h4>Design &amp; Research</h4>
+        <div class="chip-row">
+          <span class="chip">Figma</span><span class="chip">User Interviews</span><span class="chip">Competitive Analysis</span>
+          <span class="chip">Canva</span><span class="chip">Procreate</span><span class="chip">Wix</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>Let's work together.</h2>
+    <p>Open to product, UX, and analyst roles — and open to relocation.</p>
+    <div class="hero-actions">
+      <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+      <a class="btn-ghost" href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="follow">
+      <h4>Find Me</h4>
+      <div class="follow-links">
+        <a href="mailto:Aimeezhang1122@outlook.com">Email</a>
+        <a href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AimeeZzzz22" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://devpost.com/aimeezhang1122" target="_blank" rel="noopener">Devpost</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="copyright">Champaign, IL · Open to relocation</div>
+
+</body>
+</html>
