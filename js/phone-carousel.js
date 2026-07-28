@@ -7,21 +7,6 @@
     var nextBtn = frame.querySelector('.phone-arrow--next');
     var count = slides.children.length;
 
-    // Screens shorter than the frame get centered instead of top-aligned
-    // with a blank gap; taller screens stay top-aligned and scrollable.
-    Array.prototype.forEach.call(slides.children, function(slide){
-      var img = slide.querySelector('img');
-      if(!img) return;
-      function checkFit(){
-        if(!img.naturalWidth || !img.naturalHeight) return;
-        var imgRatio = img.naturalWidth / img.naturalHeight;
-        var slideRatio = slide.clientWidth / slide.clientHeight;
-        slide.classList.toggle('fits', imgRatio >= slideRatio);
-      }
-      if(img.complete) checkFit(); else img.addEventListener('load', checkFit);
-      window.addEventListener('resize', checkFit);
-    });
-
     function activeIndex(){
       return Math.round(slides.scrollLeft / slides.clientWidth) || 0;
     }
