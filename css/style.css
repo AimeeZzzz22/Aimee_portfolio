@@ -181,6 +181,9 @@ footer .btn-ghost{border-color:#3A3A40; color:#fff;}
 }
 .phone-slide::-webkit-scrollbar{display:none;}
 .phone-slide img{width:100%; height:auto; display:block; pointer-events:none;}
+/* Screens shorter than the frame: center instead of leaving a blank gap below */
+.phone-slide.fits{display:flex; align-items:center; overflow-y:hidden;}
+.phone-slide--dark{background:#0B0B0D;}
 .phone-dots{
   position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:4;
   display:flex; gap:6px; background:rgba(17,17,20,0.4); padding:6px 10px; border-radius:20px;

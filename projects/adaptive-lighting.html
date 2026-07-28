@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adaptive Lighting App — Aimee Zhang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Aimee Zhang</div>
+    <div class="navlinks">
+      <a href="../index.html#work">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+    </div>
+    <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+  </div>
+</nav>
+
+<header class="detail-header">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#work">← Back to projects</a>
+    <h1>Adaptive Lighting App</h1>
+    <div class="detail-meta">Prototype Designer · FigBuild Hackathon · March 2026</div>
+    <div class="tags"><span class="tag">UX design</span><span class="tag">AI trust</span><span class="tag">Figma</span></div>
+    <div class="detail-links">
+      <a class="btn-pill" href="https://storm-tray-96896347.figma.site/" target="_blank" rel="noopener">View Live Prototype</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero">
+    <div class="phone-frame phone-frame--large">
+      <button class="phone-arrow phone-arrow--prev" aria-label="Previous screen">←</button>
+      <button class="phone-arrow phone-arrow--next" aria-label="Next screen">→</button>
+      <div class="phone-screen">
+        <div class="phone-slides">
+          <div class="phone-slide"><img src="../images/adaptive-lighting/home.png" alt="Adaptive Lighting App home screen showing biometric state"></div>
+          <div class="phone-slide"><img src="../images/adaptive-lighting/color-selection.png" alt="Adaptive Lighting App color selection and analysis screen"></div>
+          <div class="phone-slide"><img src="../images/adaptive-lighting/insights.png" alt="Adaptive Lighting App insights and color performance screen"></div>
+          <div class="phone-slide phone-slide--dark"><img src="../images/adaptive-lighting/smart-room.png" alt="Adaptive Lighting App smart room device control screen"></div>
+        </div>
+        <div class="phone-dots">
+          <button class="phone-dot active" aria-label="Show home screen"></button>
+          <button class="phone-dot" aria-label="Show color selection screen"></button>
+          <button class="phone-dot" aria-label="Show insights screen"></button>
+          <button class="phone-dot" aria-label="Show smart room screen"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="article">
+  <h3>The Problem</h3>
+  <p>AI-driven wellness tools tend to ask for a lot of blind faith: the system tells you what to do, and you're expected to just trust it. For a biometric adaptive lighting concept — one that reads your body's signals and tells you to change your room's lighting — that trust gap is the whole product. In a 7-day hackathon sprint, the core UX question was how to make an automated recommendation feel earned rather than imposed.</p>
+
+  <h3>Process</h3>
+  <p>I designed and prototyped the full concept solo in <b>7 days</b>, taking it from an idea to a working 4-screen clickable prototype: Home, Color Selection, Insights, and Smart Room.</p>
+
+  <h3>Design Decisions</h3>
+  <p>The Home screen surfaces the user's current biometric state — heart rate, HRV, stress — as a single glanceable "mood" indicator rather than a wall of raw numbers, so any recommendation that follows always starts from something the user can immediately relate to their own body.</p>
+  <p>Color Selection is where trust actually gets built. Instead of just prescribing "Soft Blue," a Current Analysis section names the specific signals behind the call — elevated stress, reduced recovery, high focus load — tied to context like a long study session, and a <b>"Why this color?"</b> explainer closes the loop before the user has to take anything on faith.</p>
+  <p>To keep that trust from eroding after the novelty wears off, Insights tracks each color's actual success rate against the goal it was meant to serve — calm, focus, recovery, energy — across day/week/month windows. That turns "trust me" into "here's the evidence, updated over time," which was the detail I cared about most: explainability shouldn't stop at the first interaction.</p>
+  <p>The last step, Smart Room, is where the recommendation becomes reality — syncing the chosen color across every connected fixture (LED strip, ceiling, floor lamp, desk lamp) with the same reasoning carried through, so the "why" never gets lost between screens.</p>
+
+  <h3>Outcome</h3>
+  <p>A complete, coherent 4-screen prototype built in <b>7 days</b>, covering biometric sensing, explainable AI, historical validation, and smart-device control end-to-end.</p>
+
+  <h3>What I'd Do Next</h3>
+  <p>The biometric readings and device connections are prototype placeholders. The natural next step would be wiring up a real wearable's API and actual smart-bulb hardware, then running the Insights loop over several real weeks to see whether tracking a color's success rate actually changes how much people trust and follow the recommendation — not just whether the explanation reads well in a demo.</p>
+</article>
+
+<footer>
+  <div class="wrap">
+    <h2>Let's work together.</h2>
+    <p>Open to product, UX, and analyst roles — and open to relocation.</p>
+    <div class="hero-actions">
+      <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+      <a class="btn-ghost" href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="follow">
+      <h4>Find Me</h4>
+      <div class="follow-links">
+        <a href="mailto:Aimeezhang1122@outlook.com">Email</a>
+        <a href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AimeeZzzz22" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://devpost.com/aimeezhang1122" target="_blank" rel="noopener">Devpost</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="copyright">Champaign, IL · Open to relocation</div>
+
+<script src="../js/phone-carousel.js"></script>
+</body>
+</html>
