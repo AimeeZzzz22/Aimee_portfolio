@@ -176,9 +176,11 @@ footer .btn-ghost{border-color:#3A3A40; color:#fff;}
 .phone-slides::-webkit-scrollbar{display:none;}
 .phone-slide{
   flex:0 0 100%; width:100%; height:100%; scroll-snap-align:start;
-  display:flex; align-items:center; justify-content:center; background:#fff;
+  overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch;
+  touch-action:pan-y; scrollbar-width:none; background:#fff;
 }
-.phone-slide img{width:100%; height:100%; object-fit:contain; display:block; pointer-events:none;}
+.phone-slide::-webkit-scrollbar{display:none;}
+.phone-slide img{width:100%; height:auto; display:block; pointer-events:none;}
 .phone-dots{
   position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:4;
   display:flex; gap:6px; background:rgba(17,17,20,0.4); padding:6px 10px; border-radius:20px;
