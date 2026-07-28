@@ -6,6 +6,26 @@
     var prevBtn = frame.querySelector('.phone-arrow--prev');
     var nextBtn = frame.querySelector('.phone-arrow--next');
     var count = slides.children.length;
+    var slideEls = Array.prototype.slice.call(slides.children);
+    var REAL_PHONE_RATIO = 2532 / 1170; // height/width, caps how tall the frame gets
+
+    // Size the frame to match the active screen's real proportions: short
+    // screens shrink the frame so there's no blank gap, long scrollable
+    // pages are capped at a realistic phone height and scroll internally.
+    function resizeToSlide(index){
+      var slide = slideEls[index];
+      if(!slide) return;
+      var img = slide.querySelector('img');
+      if(!img) return;
+      function apply(){
+        if(!img.naturalWidth || !img.naturalHeight) return;
+        var w = frame.clientWidth;
+        var maxH = w * REAL_PHONE_RATIO;
+        var natH = w * (img.naturalHeight / img.naturalWidth);
+        frame.style.height = Math.min(natH, maxH) + 'px';
+      }
+      if(img.complete) apply(); else img.addEventListener('load', apply, { once:true });
+    }
 
     function activeIndex(){
       return Math.round(slides.scrollLeft / slides.clientWidth) || 0;
@@ -15,6 +35,7 @@
       dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
       if(prevBtn) prevBtn.disabled = i === 0;
       if(nextBtn) nextBtn.disabled = i === count - 1;
+      resizeToSlide(i);
     }
     function goTo(i){
       i = Math.max(0, Math.min(count - 1, i));
@@ -32,7 +53,10 @@
     });
     if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(activeIndex() - 1); });
     if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(activeIndex() + 1); });
-    window.addEventListener('resize', function(){ slides.scrollLeft = activeIndex() * slides.clientWidth; });
+    window.addEventListener('resize', function(){
+      slides.scrollLeft = activeIndex() * slides.clientWidth;
+      resizeToSlide(activeIndex());
+    });
 
     // Mouse drag-to-swipe (touch devices already get native scroll+snap)
     var dragging = false, movedEnough = false, startX = 0, startScroll = 0;
