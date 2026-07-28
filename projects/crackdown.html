@@ -35,8 +35,21 @@
 </header>
 
 <div class="wrap">
-  <div class="detail-hero-image">
-    <img src="../images/crackdown/preview.jpg" alt="Crackdown app calendar and daily task view">
+  <div class="detail-hero">
+    <div class="phone-frame phone-frame--large">
+      <button class="phone-arrow phone-arrow--prev" aria-label="Previous screen">←</button>
+      <button class="phone-arrow phone-arrow--next" aria-label="Next screen">→</button>
+      <div class="phone-screen">
+        <div class="phone-slides">
+          <div class="phone-slide"><img src="../images/crackdown/preview.jpg" alt="Crackdown app calendar and daily task view"></div>
+          <div class="phone-slide"><img src="../images/crackdown/goal-board.png" alt="Crackdown app goal board overview"></div>
+        </div>
+        <div class="phone-dots">
+          <button class="phone-dot active" aria-label="Show calendar screen"></button>
+          <button class="phone-dot" aria-label="Show goal board screen"></button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -70,7 +83,6 @@
       <div class="gallery-item"><img src="../images/crackdown/create-account.png" alt="Crackdown create account screen"></div>
       <div class="gallery-item"><img src="../images/crackdown/sign-in.png" alt="Crackdown sign in screen"></div>
       <div class="gallery-item"><img src="../images/crackdown/new-todo.png" alt="Crackdown new to-do creation screen"></div>
-      <div class="gallery-item"><img src="../images/crackdown/goal-board.png" alt="Crackdown goal board overview screen"></div>
       <div class="gallery-item"><img src="../images/crackdown/goal-detail.png" alt="Crackdown individual goal detail screen"></div>
     </div>
   </div>
@@ -97,5 +109,6 @@
 </footer>
 <div class="copyright">Champaign, IL · Open to relocation</div>
 
+<script src="../js/phone-carousel.js"></script>
 </body>
 </html>

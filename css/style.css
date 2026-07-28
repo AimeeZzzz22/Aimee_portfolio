@@ -99,11 +99,12 @@ h1{
 }
 .project-card:last-child{border-bottom:1px solid var(--line);}
 .project-card-image{
-  border-radius:16px; overflow:hidden; border:1px solid var(--line);
-  height:400px; background:var(--soft);
+  border-radius:20px; border:1px solid var(--line);
+  background:var(--soft); padding:36px 0 44px;
+  display:flex; justify-content:center;
   transition:border-color .15s ease;
 }
-.project-card-image img{width:100%; height:100%; object-fit:cover; object-position:center 12%; display:block;}
+.project-card:hover .project-card-image{border-color:var(--ink);}
 .project-card:hover .project-card-image{border-color:var(--ink);}
 .project-card-body{margin-top:22px;}
 .project-card-top{display:flex; align-items:center; justify-content:space-between; gap:16px;}
@@ -146,11 +147,58 @@ footer .btn-ghost{border-color:#3A3A40; color:#fff;}
 .detail-header .tags{margin-top:18px;}
 .detail-links{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap;}
 
-.detail-hero-image{
-  border-radius:20px; overflow:hidden; border:1px solid var(--line);
-  max-height:640px; display:flex; justify-content:center; background:var(--soft);
+.detail-hero{
+  border-radius:20px; border:1px solid var(--line);
+  padding:56px 0 60px; display:flex; justify-content:center; background:var(--soft);
 }
-.detail-hero-image img{width:100%; max-width:420px; height:auto; display:block; margin:0 auto;}
+
+/* PHONE FRAME CAROUSEL */
+.phone-frame{
+  position:relative; width:100%; max-width:230px; margin:0 auto;
+  aspect-ratio:1170/2532; background:#0B0B0D; border-radius:42px; padding:12px;
+  box-shadow:0 24px 48px -16px rgba(17,17,20,0.28);
+}
+.phone-frame--large{max-width:300px; border-radius:52px; padding:14px;}
+.phone-frame::before{
+  content:""; position:absolute; top:12px; left:50%; transform:translateX(-50%);
+  width:32%; height:20px; background:#0B0B0D; border-radius:14px; z-index:4;
+}
+.phone-frame--large::before{top:16px; height:26px;}
+.phone-screen{
+  position:relative; width:100%; height:100%; border-radius:30px; overflow:hidden; background:#fff;
+}
+.phone-frame--large .phone-screen{border-radius:38px;}
+.phone-slides{
+  display:flex; width:100%; height:100%; overflow-x:auto; scroll-snap-type:x mandatory;
+  scroll-behavior:smooth; -webkit-overflow-scrolling:touch; scrollbar-width:none; cursor:grab;
+}
+.phone-slides.is-dragging{cursor:grabbing; scroll-behavior:auto;}
+.phone-slides::-webkit-scrollbar{display:none;}
+.phone-slide{
+  flex:0 0 100%; width:100%; height:100%; scroll-snap-align:start;
+  display:flex; align-items:center; justify-content:center; background:#fff;
+}
+.phone-slide img{width:100%; height:100%; object-fit:contain; display:block; pointer-events:none;}
+.phone-dots{
+  position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:4;
+  display:flex; gap:6px; background:rgba(17,17,20,0.4); padding:6px 10px; border-radius:20px;
+}
+.phone-frame--large .phone-dots{bottom:18px;}
+.phone-dot{width:6px; height:6px; padding:0; border:none; border-radius:50%; background:rgba(255,255,255,0.45); transition:background .15s ease, transform .15s ease;}
+.phone-dot.active{background:#fff; transform:scale(1.2);}
+button.phone-dot{cursor:pointer;}
+.phone-arrow{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:4;
+  width:36px; height:36px; border-radius:50%; border:none; cursor:pointer;
+  background:#fff; color:var(--ink); font-size:1rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 16px rgba(17,17,20,0.18);
+  transition:opacity .15s ease, transform .15s ease;
+}
+.phone-arrow:hover{transform:translateY(-50%) scale(1.06);}
+.phone-arrow--prev{left:-18px;}
+.phone-arrow--next{right:-18px;}
+.phone-arrow[disabled]{opacity:0; pointer-events:none;}
 
 .article{padding:64px 0; max-width:680px; margin:0 auto;}
 .article h3{font-size:1.3rem; font-weight:800; letter-spacing:-0.01em; margin:40px 0 14px;}
@@ -178,5 +226,7 @@ footer .btn-ghost{border-color:#3A3A40; color:#fff;}
   .project{grid-template-columns:1fr;}
   .skills-wrap{grid-template-columns:1fr;}
   .gallery{grid-template-columns:repeat(2, 1fr);}
-  .project-card-image{height:220px;}
+  .phone-frame{max-width:190px;}
+  .phone-frame--large{max-width:230px;}
+  .phone-arrow{display:none;}
 }
