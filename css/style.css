@@ -204,6 +204,22 @@ button.phone-dot{cursor:pointer;}
 .phone-arrow--next{right:-18px;}
 .phone-arrow[disabled]{opacity:0; pointer-events:none;}
 
+/* Widescreen slide-deck variant of the carousel (reuses the same JS/markup) */
+.phone-frame--deck{
+  max-width:420px; aspect-ratio:16/9; background:#fff; border-radius:14px; padding:0;
+  border:1px solid var(--line); box-shadow:0 20px 40px -18px rgba(17,17,20,0.18);
+}
+.phone-frame--deck.phone-frame--large{max-width:640px; border-radius:16px;}
+.phone-frame--deck::before{display:none;}
+.phone-frame--deck .phone-screen{border-radius:13px;}
+.phone-frame--deck.phone-frame--large .phone-screen{border-radius:15px;}
+.phone-frame--deck .phone-dots{
+  position:absolute; bottom:-30px; left:50%; background:transparent; padding:0;
+}
+.phone-frame--deck .phone-dot{background:var(--line);}
+.phone-frame--deck .phone-dot.active{background:var(--ink);}
+.phone-frame--deck .phone-arrow{width:32px; height:32px;}
+
 .article{padding:64px 0; max-width:680px; margin:0 auto;}
 .article h3{font-size:1.3rem; font-weight:800; letter-spacing:-0.01em; margin:40px 0 14px;}
 .article h3:first-child{margin-top:0;}
