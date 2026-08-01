@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Project — Off The Clock — Aimee Zhang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=4">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Aimee Zhang</div>
+    <div class="navlinks">
+      <a href="../index.html#work">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+    </div>
+    <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+  </div>
+</nav>
+
+<header class="detail-header">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#work">← Back to projects</a>
+    <h1>Design Project — Off The Clock</h1>
+    <div class="detail-meta">Systems Designer &amp; Engineer · CS 417 – Virtual Reality · Spring 2026</div>
+    <div class="tags"><span class="tag">Systems Design</span><span class="tag">Unity</span><span class="tag">C#</span></div>
+    <div class="detail-links">
+      <a class="btn-pill" href="https://mirei-t.itch.io/off-the-clock" target="_blank" rel="noopener">Play in VR</a>
+      <a class="btn-ghost" href="https://github.com/Mireille-T/OffTheClock" target="_blank" rel="noopener">Source Code</a>
+      <a class="btn-ghost" href="https://drive.google.com/file/d/1qm2FTMx0u9V3NaIYyX-o7ahkspu4-B4Q/view?usp=sharing" target="_blank" rel="noopener">Watch Demo Video</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail-hero">
+    <div class="phone-frame phone-frame--deck phone-frame--large">
+      <div class="phone-screen">
+        <div class="phone-slides">
+          <div class="phone-slide"><img src="../images/vr-off-the-clock/preview.jpg" alt="Off The Clock VR game, office cubicle environment where players earn money grading papers"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="article">
+  <h3>The Challenge</h3>
+  <p>An open-ended VR game needs its core economy to feel meaningful — earning currency has to connect clearly to spending it, across two entirely different in-game environments, or the whole progression loop falls apart.</p>
+
+  <h3>Process</h3>
+  <p>Off The Clock is an open-ended VR game built by a team of four. Players earn money by grading papers in a classroom, then spend it at a weapon upgrade shop to power up before heading into combat. The game features a full resource economy, a persistent save system, tiered upgrade progression, and a poke-interactable shop UI.</p>
+  <p>I designed and engineered the <b>complete store and economy system</b> — the backbone of the game's progression loop — contributing 15 story points across 7 features.</p>
+
+  <h3>Design Decisions</h3>
+  <p><b>Resource Simulation (EconomyManager.cs):</b> built the money system that tracks the player's currency and fires an <code>OnMoneyChanged</code> event whenever it updates. Money is earned by correctly grading papers in the classroom, creating a meaningful loop between the two environments.</p>
+  <p><b>Dual HUD Money Display:</b> created two live money displays — one on the classroom monitor, one inside the mech cockpit — both driven by that same economy event, so the player always knows their balance no matter which environment they're in.</p>
+  <p><b>Weapon Upgrade Shop:</b> designed the shop where players spend money to increase weapon damage, recalculating total damage from base damage plus all purchased boosts on every purchase, feeding directly into the combat system.</p>
+  <p><b>Tiered Unlock Progression:</b> the shop has three tiers (Green → Orange → Blue) with two weapons per tier. Higher-tier cards stay hidden behind "???" with disabled buy buttons until the previous tier is purchased, so new interactables are literally revealed as players progress — with escalating costs shown on every card so players can plan their spending.</p>
+  <p><b>Inter-session Save System (SaveSystem.cs):</b> a JSON-based save system that persists the player's money and each weapon's tier to disk, restoring all values before the first frame renders on reload.</p>
+  <p><b>Poke-Interactable Shop UI:</b> implemented the shop's VR poke-interactable buttons — left arrow, right arrow, and buy — using XRSimpleInteractable and XRPokeFilter, each with a correctly configured box collider for front-facing poke detection.</p>
+
+  <h3>Outcome</h3>
+  <p>A complete, working resource economy — 15 story points across 7 features — that ties two separate game environments into one coherent progression loop, with persistent saves so progress isn't lost between sessions.</p>
+
+  <h3>What I'd Do Next</h3>
+  <p>Playtest the tier-cost curve with real players to see whether the escalating costs feel like fair pressure or just grindy, and tune the economy from there.</p>
+</article>
+
+<footer>
+  <div class="wrap">
+    <h2>Let's work together.</h2>
+    <p>Open to product, UX, and analyst roles — and open to relocation.</p>
+    <div class="hero-actions">
+      <a class="btn-pill" href="mailto:Aimeezhang1122@outlook.com">Hire Me</a>
+      <a class="btn-ghost" href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="follow">
+      <h4>Find Me</h4>
+      <div class="follow-links">
+        <a href="mailto:Aimeezhang1122@outlook.com">Email</a>
+        <a href="https://linkedin.com/in/aimee-zhang1122" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AimeeZzzz22" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://devpost.com/aimeezhang1122" target="_blank" rel="noopener">Devpost</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="copyright">Champaign, IL · Open to relocation</div>
+
+<script src="../js/phone-carousel.js?v=4"></script>
+</body>
+</html>
